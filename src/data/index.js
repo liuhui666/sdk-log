@@ -1,4 +1,6 @@
-const data = [{
+const updateTime = '2019-10-14 15:30';
+
+const updateData = [{
   version: '2019-09-29 更新日志(1.4.0)',
   changelog: ['新增转码功能(VP8、H.264)', '修复主播收到自身流删除问题', '修复火狐浏览器推第三方视频并循环播放，播放多遍拉流质量为0的问题'],
 }, {
@@ -49,4 +51,32 @@ const data = [{
 }];
 
 
-export default data;
+const sdk = [{
+  version: '1.2.3',
+  url: '',
+},
+{
+  version: '1.2.2',
+  url: '1',
+}, {
+  version: '1.2.1',
+  url: '2',
+}, {
+  version: '1.2.0',
+  url: '3',
+}, {
+  version: '1.1.9',
+  url: '4',
+}, {
+  version: '1.1.8',
+  url: '5',
+}, {
+  version: '1.1.7',
+  url: '6',
+}];
+
+export {
+  updateData,
+  updateTime,
+  sdk,
+};
