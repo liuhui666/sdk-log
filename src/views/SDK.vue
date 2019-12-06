@@ -21,17 +21,17 @@
 
 </template>
 <script>
-import { sdk } from '../data';
+import { updateData } from '../data';
 
 export default {
   data() {
     return {
-      options: sdk.map(item => ({
+      options: updateData.map(item => ({
         label: item.version,
         value: item.url,
       })),
-      value: sdk[0].version,
-      lastestVersion: sdk[0].version,
+      value: updateData[0].version,
+      lastestVersion: updateData[0].version,
     };
   },
   methods: {

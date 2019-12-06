@@ -15,10 +15,12 @@
       <div class="title">
         <h1>Web JS SDK 历史更新日志</h1>
         <div class="update-time">更新时间：{{ updateTime }}</div>
-        <div class="pdf">下载pdf</div>
+        <!-- <div class="pdf">下载pdf</div> -->
       </div>
       <div v-for='(item,index) in updateData' :key='index' :id='item.version' class="logItem">
-        <h2 :id="item.version"><a :name="index+1"></a>{{ item.version }}</h2>
+        <h2 :id="item.version"><a :name="index+1"></a>{{ item.versionTitle }}
+          <a :href="item.url" target="_blank" class="downloadText">下载地址</a>
+        </h2>
         <ol v-for='(i,idx) in item.changelog' :key='idx'>
           <li>{{ i }}</li>
         </ol>
@@ -49,15 +51,15 @@ export default {
 
   },
   methods: {
-    handleSelect(menu) {
-      console.log(menu);
+    handleSelect() {
+
     },
     handleScroll() {
       const sections = document.getElementsByClassName('logItem');
 
       for (let i = 0; i < sections.length; i += 1) {
         const scrollHeight = document.getElementById('content').scrollTop;
-        console.log(sections[i].offsetTop - 145, scrollHeight);
+        // console.log(sections[i].offsetTop - 145, scrollHeight);
         if (sections[i].offsetTop - 145 <= scrollHeight) {
           this.activeAnchorIndex = i;
         }
@@ -65,7 +67,7 @@ export default {
     },
     jump(version, index) {
       this.activeAnchorIndex = index;
-      console.log(document.getElementById(version).offsetParent); // offset相对于el-main来计算
+      // console.log(document.getElementById(version).offsetParent); // offset相对于el-main来计算
       this.smoothDown(document.getElementById(version).offsetTop - 20);
       // document.getElementById('content').scrollTop = document.
       // getElementById(version).offsetTop - 20;
@@ -80,7 +82,7 @@ export default {
       } else {
         const newTotal = distance - total;
         step = newTotal / 50;
-        console.log(this.smoothUp);
+        // console.log(this.smoothUp);
         this.smoothUp();
       }
     },
@@ -213,5 +215,10 @@ ol > li {
 }
 .content .category-item {
   line-height: 30px;
+}
+.downloadText{
+  text-decoration: none;
+  font-size: 14px;
+  color: #0d70ff
 }
 </style>
